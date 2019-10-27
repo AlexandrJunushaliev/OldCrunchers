@@ -12,6 +12,8 @@ export class NavMenuComponent {
     this.isExpanded = false;
   }
 
+  isLoggedIn = true;
+
   toggle() {
     this.isExpanded = !this.isExpanded;
   }

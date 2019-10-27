@@ -29,14 +29,30 @@
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
+            >Counter</a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
+            >Fetch data</a
             >
           </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <div *ngIf="isLoggedIn; else loggedOut">
+              <a class="nav-link text-dark" [routerLink]="['/account']"
+              ><img src="favicon.img" alt="Личный кабинет"></a
+              >
+            </div>
+
+            <ng-template #loggedOut>
+              <a class="nav-link text-dark" [routerLink]="['/login']"
+              >Вход/Регистрация</a
+              >
+            </ng-template>
+          </li>
+
+
+
         </ul>
       </div>
     </div>
