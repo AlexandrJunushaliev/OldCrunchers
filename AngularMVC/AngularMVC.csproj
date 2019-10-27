@@ -20,11 +20,13 @@
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\src\app\login\login.component.html" />
+        <Content Include="ClientApp\src\app\search\search.component.html" />
         <Content Include="ClientApp\src\app\user-account\Instruction.txt" />
         <Content Include="ClientApp\src\app\user-account\user-account.component.html" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
         <None Include="ClientApp\src\app\login\login.component.ts" />
+        <None Include="ClientApp\src\app\search\search.component.ts" />
         <None Include="ClientApp\src\app\user-account\user-account.component.ts" />
         <None Include="ClientApp\src\app\UserAccount\UserAccount.ts" />
     </ItemGroup>

@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">AngularMVC</a>
+      <a class="navbar-brand" [routerLink]="['/']">Crunchers</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,6 +20,11 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
+
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <input size="40" id = "idSearch" type="text" placeholder="Введите название товара или категории" name="search">
+            <button type="submit" (click)="search()">Поиск</button>
+          </li>
           <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
@@ -50,9 +55,6 @@
               >
             </ng-template>
           </li>
-
-
-
         </ul>
       </div>
     </div>
