@@ -19,6 +19,7 @@
     <ItemGroup>
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
         <Content Remove="$(SpaRoot)**" />
+        <Content Include="ClientApp\src\app\category-sidenav\category-sidenav.component.html" />
         <Content Include="ClientApp\src\app\login\login.component.html" />
         <Content Include="ClientApp\src\app\navigation\navigation.css" />
         <Content Include="ClientApp\src\app\navigation\navigation.html" />
@@ -27,6 +28,7 @@
         <Content Include="ClientApp\src\app\user-account\user-account.component.html" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+        <None Include="ClientApp\src\app\category-sidenav\category-sidenav.component.ts" />
         <None Include="ClientApp\src\app\login\login.component.ts" />
         <None Include="ClientApp\src\app\navigation\navigation.ts" />
         <None Include="ClientApp\src\app\search\search.component.ts" />

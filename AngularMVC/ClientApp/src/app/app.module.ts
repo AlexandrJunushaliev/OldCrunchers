@@ -22,6 +22,7 @@ import {NavigationComponent} from "./navigation/navigation";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CategorySidenavComponent} from "./category-sidenav/category-sidenav.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     UserAccountComponent,
     LoginComponent,
     SearchComponent,
-    NavigationComponent
+    NavigationComponent,
+    CategorySidenavComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -59,7 +61,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatIconModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [CategorySidenavComponent]
 })
 export class AppModule {
 }
