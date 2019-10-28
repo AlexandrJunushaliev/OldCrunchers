@@ -30,8 +30,6 @@
         <None Include="ClientApp\src\app\login\login.component.ts" />
         <None Include="ClientApp\src\app\navigation\navigation.ts" />
         <None Include="ClientApp\src\app\search\search.component.ts" />
-        <None Include="ClientApp\src\app\sidenav-fixed-example\sidenav-fixed-example.ts" />
-        <None Include="ClientApp\src\app\sidenav\sidenav.ts" />
         <None Include="ClientApp\src\app\user-account\user-account.component.ts" />
     </ItemGroup>
 
