@@ -37,7 +37,7 @@
                    [fixedInViewport]="true" [fixedTopGap]="0"
                    [fixedBottomGap]="0">
         <mat-nav-list class="categoriesList">
-          <mat-list-item class="categoryClass" [routerLinkActive]="['link-active']" *ngFor="let item of items">
+          <mat-list-item (mouseover)="show()" (mouseout)="hide()" class="categoryClass" [routerLinkActive]="['link-active']" *ngFor="let item of items">
             <a mat-list-item routerLink="{{item.route}}">{{item.name}}</a>
           </mat-list-item>
         </mat-nav-list>

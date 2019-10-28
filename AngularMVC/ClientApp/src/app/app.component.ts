@@ -18,8 +18,12 @@ export class AppComponent {
 
   title = 'app';
   public items = [new AppComponent.Category("mobile","/counter"),new AppComponent.Category("computers","/counter")];
-  public showCat()
+  public show()
   {
-
+    console.log("showed");
+  }
+  public hide()
+  {
+    console.log("hided");
   }
 }
