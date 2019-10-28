@@ -15,7 +15,7 @@ export class NavMenuComponent {
     this.isExpanded = false;
   }
 
-  isLoggedIn = true;
+  isLoggedIn = false;
 
   public search(){
     let text = (<HTMLInputElement>document.getElementById('idSearch')).value;
