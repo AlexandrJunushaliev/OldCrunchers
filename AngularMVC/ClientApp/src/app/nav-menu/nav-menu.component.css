@@ -2,8 +2,12 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  min-width: 100px;
 }
-
+.nav-item{
+  display: inline-block;
+  min-width: fit-content;
+}
 html {
   font-size: 14px;
 }

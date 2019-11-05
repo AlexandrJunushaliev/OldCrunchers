@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+
+/*import iplocation from "iplocation";*/
 
 @Component({
   selector: 'app-nav-menu',
@@ -15,6 +17,9 @@ export class NavMenuComponent {
     this.isExpanded = false;
   }
 
+
+
+  city;
   isLoggedIn = false;
 
   public search(){
@@ -24,4 +29,14 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
+  /*ngOnInit(): void {
+    iplocation("56.70.97.8")
+      .then((res) => {
+        this.city = res.city;
+      })
+      .catch(err => {
+      });
+
+  }*/
 }

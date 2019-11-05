@@ -21,8 +21,6 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\src\app\category-sidenav\category-sidenav.component.html" />
         <Content Include="ClientApp\src\app\login\login.component.html" />
-        <Content Include="ClientApp\src\app\navigation\navigation.css" />
-        <Content Include="ClientApp\src\app\navigation\navigation.html" />
         <Content Include="ClientApp\src\app\search\search.component.html" />
         <Content Include="ClientApp\src\app\user-account\Instruction.txt" />
         <Content Include="ClientApp\src\app\user-account\user-account.component.html" />

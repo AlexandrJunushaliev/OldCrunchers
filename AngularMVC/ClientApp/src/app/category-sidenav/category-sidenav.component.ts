@@ -16,12 +16,22 @@ export class CategorySidenavComponent {
 
   title = 'app';
   public items = [new CategorySidenavComponent.Category("mobile","/counter"),new CategorySidenavComponent.Category("computers","/counter")];
-  public show()
+  public show( obj )
   {
-    console.log("showed");
+    /*/!*let cat1 = Object.assign(HTMLDataListElement,obj);
+    let cat2 = obj as HTMLDataListElement;
+    const cat3 :HTMLDataListElement=obj;
+    console.log(cat1);
+    console.log(cat2);
+    console.log(cat3);*!/
+    let cat = obj as HTMLElement;
+    console.log(cat);*/
   }
-  public hide()
+  public hide(obj)
   {
-    console.log("hided");
+
+    /*let cat = obj as HTMLDataListElement;
+    console.log(cat);
+    cat.style.color="red";*/
   }
 }

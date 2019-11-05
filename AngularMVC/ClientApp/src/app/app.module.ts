@@ -18,7 +18,6 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {NavigationComponent} from "./navigation/navigation";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -34,7 +33,6 @@ import {CategorySidenavComponent} from "./category-sidenav/category-sidenav.comp
     UserAccountComponent,
     LoginComponent,
     SearchComponent,
-    NavigationComponent,
     CategorySidenavComponent
   ],
   imports: [
