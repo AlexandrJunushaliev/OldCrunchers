@@ -22,6 +22,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CategorySidenavComponent} from "./category-sidenav/category-sidenav.component";
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [

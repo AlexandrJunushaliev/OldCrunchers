@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
-/*import iplocation from "iplocation";*/
 
 @Component({
   selector: 'app-nav-menu',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-menu.component.css']
 })
 
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit{
   isExpanded = false;
 
   constructor(private router:Router){}
@@ -23,6 +23,7 @@ export class NavMenuComponent {
   isLoggedIn = false;
 
   public search(){
+
     let text = (<HTMLInputElement>document.getElementById('idSearch')).value;
     this.router.navigate(['/search'],{queryParams:{text:text}})
   }
@@ -30,13 +31,12 @@ export class NavMenuComponent {
     this.isExpanded = !this.isExpanded;
   }
 
-  /*ngOnInit(): void {
-    iplocation("56.70.97.8")
-      .then((res) => {
-        this.city = res.city;
-      })
-      .catch(err => {
-      });
+  ngOnInit(): void {
+    console.log('until ex');
+    $.getJSON('https://ipinfo.io/json', function(data) {
+      console.log('as');
+      console.log(data.ip);
+    });
+  }
 
-  }*/
 }
