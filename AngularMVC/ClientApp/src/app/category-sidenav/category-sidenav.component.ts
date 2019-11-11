@@ -1,7 +1,8 @@
 ﻿import {Component} from "@angular/core";
 @Component({
   selector:'category-sidenav',
-  templateUrl:'./category-sidenav.component.html'
+  templateUrl:'./category-sidenav.component.html',
+  styleUrls:['./category-sidenav.component.css']
 })
 export class CategorySidenavComponent {
   static Category = class {

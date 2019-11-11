@@ -22,7 +22,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CategorySidenavComponent} from "./category-sidenav/category-sidenav.component";
-import * as $ from 'jquery';
+import { BasicAuthInterceptor } from './services/basic-auth-interceptor';
+import {AuthGuard} from "./services/auth-guard";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import * as $ from 'jquery';
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'counter', component: CounterComponent},
-      {path: 'fetch-data', component: FetchDataComponent},
+      {path: 'fetch-data', component: FetchDataComponent, canActivate:[AuthGuard]},
       {path: 'account', component: UserAccountComponent},
       {path: 'login', component: LoginComponent},
       {path: 'search', component: SearchComponent}
@@ -59,7 +60,7 @@ import * as $ from 'jquery';
     MatListModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },],
   bootstrap: [CategorySidenavComponent]
 })
 export class AppModule {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import {AuthenticationService} from "../services/auth.component";
 
 
 @Component({
@@ -12,7 +13,7 @@ import * as $ from 'jquery';
 export class NavMenuComponent implements OnInit{
   isExpanded = false;
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private auth:AuthenticationService){}
   collapse() {
     this.isExpanded = false;
   }
@@ -20,7 +21,11 @@ export class NavMenuComponent implements OnInit{
 
 
   city;
-  isLoggedIn = false;
+
+  isLoggedIn(){return AuthenticationService.isLogIn();}
+  logout(){
+    return this.auth.logout();
+  }
 
   public search(){
 
