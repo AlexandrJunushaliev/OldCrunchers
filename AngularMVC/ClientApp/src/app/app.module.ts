@@ -46,7 +46,7 @@ import {AuthGuard} from "./services/auth-guard";
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'counter', component: CounterComponent},
       {path: 'fetch-data', component: FetchDataComponent, canActivate:[AuthGuard]},
-      {path: 'account', component: UserAccountComponent},
+      {path: 'account', component: UserAccountComponent,canActivate:[AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'search', component: SearchComponent}
     ]),

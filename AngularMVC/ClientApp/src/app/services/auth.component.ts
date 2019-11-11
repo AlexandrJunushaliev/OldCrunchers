@@ -1,13 +1,14 @@
 ﻿import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {Router} from "@angular/router";
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthenticationService {
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -19,12 +20,15 @@ export class AuthenticationService {
   //здесь я еще храню пользователя
   //кладу токен в ответе
   public login(username: string, password: string) {
-    return  this.http.get<string>(`/authtest`).subscribe(res=>{
+    this.http.get<string>(`/authtest`).subscribe(res => {
       let userData = JSON.parse(JSON.stringify(res));
 
       localStorage.setItem('currentUser', JSON.stringify(userData.User));
-      localStorage.setItem('tokenBornTime',Date.now().toString());
-      localStorage.setItem('token',userData.Token);},error => {});
+      localStorage.setItem('tokenBornTime', Date.now().toString());
+      localStorage.setItem('token', userData.Token);
+    }, error => {
+    });
+    this.router.navigate(['/account']);
   }
 
   public logout() {
@@ -33,17 +37,19 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
     localStorage.removeItem('tokenBornTime');
+    this.router.navigate(['/']);
   }
-  static isTokenExpired(){
-    if (localStorage.getItem('tokenBornTime')!=null)
-    {
+
+  static isTokenExpired() {
+    if (localStorage.getItem('tokenBornTime') != null) {
       let tokenBornTime = <number>(JSON.parse(localStorage.getItem('tokenBornTime')));
-      return Date.now()-tokenBornTime>1800000;
+      return Date.now() - tokenBornTime > 1800000;
     }
     return true;
 
   }
-  public static isLogIn():boolean{
+
+  public static isLogIn(): boolean {
     return !this.isTokenExpired();
   }
 }
