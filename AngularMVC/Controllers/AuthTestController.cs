@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace AngularMVC.Controllers
 {
+    public class RefreshTokenResult
+    {
+        public string token;
+    }
+    
     public class User
     {
         public string Email;
@@ -46,13 +52,14 @@ namespace AngularMVC.Controllers
         [HttpGet]
         public string RefreshAuthToken()
         {
+            Thread.Sleep(7000);
             var token = Request.Headers["refreshToken"].FirstOrDefault();
             if (token != null)
             {
-                return JsonConvert.ToString(new {token = "newFuckingToken"});
+                return JsonConvert.SerializeObject(new {token = "newToken"});
             }
 
-            return "no Token";
+            return JsonConvert.SerializeObject(new {noToken="no token"});
         }
     }
 }

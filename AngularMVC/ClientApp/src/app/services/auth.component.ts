@@ -1,8 +1,8 @@
 ﻿import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import {HttpClient, HttpHandler} from '@angular/common/http';
+import {map, switchMap} from 'rxjs/operators';
 import {Router} from "@angular/router";
-import {timer} from "rxjs";
+import * as $ from "jquery";
 
 
 @Injectable({providedIn: 'root'})
@@ -22,11 +22,10 @@ export class AuthenticationService {
   //кладу токен в ответе
   public login(username: string, password: string) {
     this.http.get<string>(`/authtest`).subscribe(res => {
-      localStorage.setItem('tokenExpiredTime', (Date.now() + 5000).toString());
-      let userData = JSON.parse(JSON.stringify(res));
-      localStorage.setItem('currentUser', JSON.stringify(userData.User));
-      localStorage.setItem('AuthToken', userData.AuthToken);
-      localStorage.setItem('RefreshToken', userData.RefreshToken);
+      let respData = JSON.parse(JSON.stringify(res));
+      localStorage.setItem('currentUser', JSON.stringify(respData.User));
+      this.refreshAuthToken(respData.AuthToken);
+      localStorage.setItem('RefreshToken', respData.RefreshToken);
       this.router.navigate(['/account']);
     }, error => {window.alert('retry attempt');
     });
@@ -43,7 +42,7 @@ export class AuthenticationService {
     this.router.navigate(['/']);
   }
 
-  static isTokenExpired() {
+  isTokenExpired() {
     if (localStorage.getItem('tokenExpiredTime') != null) {
       let tokenExpiredTime = <number>(JSON.parse(localStorage.getItem('tokenExpiredTime')));
       return Date.now() - tokenExpiredTime > 0;
@@ -52,11 +51,15 @@ export class AuthenticationService {
 
   }
 
-  public static isLogIn(): boolean {
-    if(this.isTokenExpired())
-    {
-    }
-    return !this.isTokenExpired();
+  refreshAuthToken(token:string)
+  {
+    localStorage.setItem('AuthToken',token);
+    localStorage.setItem('tokenExpiredTime', (Date.now() + 5000).toString());
+  }
+
+  public isLogIn(): boolean {
+
+    return localStorage.getItem('RefreshToken')!=null;
   }
 }
 

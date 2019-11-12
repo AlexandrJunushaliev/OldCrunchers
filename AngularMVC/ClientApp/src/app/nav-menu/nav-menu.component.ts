@@ -22,7 +22,7 @@ export class NavMenuComponent implements OnInit{
 
   city;
 
-  isLoggedIn(){return AuthenticationService.isLogIn();}
+  isLoggedIn(){return this.auth.isLogIn();}
   logout(){
     return this.auth.logout();
   }
