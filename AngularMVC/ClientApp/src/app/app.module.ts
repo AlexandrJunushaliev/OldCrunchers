@@ -24,6 +24,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CategorySidenavComponent} from "./category-sidenav/category-sidenav.component";
 import { BasicAuthInterceptor } from './services/basic-auth-interceptor';
 import {AuthGuard} from "./services/auth-guard";
+import {RegistrationComponent} from "./registration/registration.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {AuthGuard} from "./services/auth-guard";
     UserAccountComponent,
     LoginComponent,
     SearchComponent,
-    CategorySidenavComponent
+    CategorySidenavComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -48,7 +50,8 @@ import {AuthGuard} from "./services/auth-guard";
       {path: 'fetch-data', component: FetchDataComponent, canActivate:[AuthGuard]},
       {path: 'account', component: UserAccountComponent,canActivate:[AuthGuard]},
       {path: 'login', component: LoginComponent},
-      {path: 'search', component: SearchComponent}
+      {path: 'search', component: SearchComponent},
+      {path:'registration',component:RegistrationComponent}
     ]),
     MatToolbarModule,
     MatSidenavModule,

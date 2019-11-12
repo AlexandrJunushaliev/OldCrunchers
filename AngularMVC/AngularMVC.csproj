@@ -23,6 +23,7 @@
         <Content Include="ClientApp\src\app\category-sidenav\category-sidenav.component.html" />
         <Content Include="ClientApp\src\app\home\home.component.css" />
         <Content Include="ClientApp\src\app\login\login.component.html" />
+        <Content Include="ClientApp\src\app\registration\registration.component.html" />
         <Content Include="ClientApp\src\app\search\search.component.html" />
         <Content Include="ClientApp\src\app\user-account\Instruction.txt" />
         <Content Include="ClientApp\src\app\user-account\user-account.component.html" />
@@ -31,6 +32,7 @@
         <None Include="ClientApp\src\app\category-sidenav\category-sidenav.component.ts" />
         <None Include="ClientApp\src\app\login\login.component.ts" />
         <None Include="ClientApp\src\app\navigation\navigation.ts" />
+        <None Include="ClientApp\src\app\registration\registration.component.ts" />
         <None Include="ClientApp\src\app\search\search.component.ts" />
         <None Include="ClientApp\src\app\services\auth-guard.ts" />
         <None Include="ClientApp\src\app\services\auth.component.ts" />
