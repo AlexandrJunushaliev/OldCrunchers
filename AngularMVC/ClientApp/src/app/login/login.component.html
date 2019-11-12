@@ -1,4 +1,12 @@
-﻿<main class="page login-page">
+﻿<style>
+  input:invalid {
+    border-color: rgba(255, 3, 0, 0.27); /* Красный цвет фона */
+  }
+  .clean-block{
+    background-color: rgba(0,0,0,0);
+  }
+</style>
+<main class="page login-page">
   <section class="clean-block clean-form dark">
     <div class="container">
       <div class="block-heading">
@@ -6,9 +14,17 @@
         <p></p>
       </div>
       <form>
-        <div class="form-group"><label for="email">Электронный адрес</label><input type="email" class="form-control item" id="email" /></div>
-        <div class="form-group"><label for="password">Пароль</label><input type="password" class="form-control" id="password" /></div>
-        <button class="btn btn-primary btn-block" type="submit" (click)="login()">Войти</button></form>
+        <ul class="errorMessages"></ul>
+        <div class="form-group">
+          <label
+            for="email">Электронный адрес
+          </label>
+          <input type="email" class="form-control item" id="email" required />
+
+        </div>
+        <div class="form-group"><label for="password">Пароль</label><input type="password" class="form-control" id="password" required minlength="8" /></div>
+        <button class="btn btn-primary btn-block" type="submit" (click)="login()">Войти</button>
+      </form>
     </div>
   </section>
 </main>
