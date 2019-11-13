@@ -1,4 +1,7 @@
 ﻿<style>
+  input:invalid {
+    border-color: rgba(255, 3, 0, 0.27); /* Красный цвет фона */
+  }
   .text-info{
     color: orange !important;
   }
@@ -28,9 +31,13 @@
       <div class="block-heading">
         <h2 class="text-info">Регистрация</h2>
       </div>
-      <form><label for="email">Электронный адрес</label>
-        <div class="form-group"><input type="email" class="form-control item" id="email" /></div>
-        <div class="form-group"><label for="password">Пароль</label><input type="password" class="form-control item" id="password" /></div><button class="btn btn-primary btn-block" type="submit">Зарегистрироваться</button></form>
+      <form>
+        <ul class="errorMessages"></ul>
+        <label for="email">Электронный адрес</label>
+        <div class="form-group"><input type="email" required class="form-control item" id="email" /></div>
+        <div class="form-group"><label for="password">Пароль</label><input type="password"  class="form-control item" id="password" required minlength="8" /></div>
+        <button class="btn btn-primary btn-block" type="submit" (click)="registration()">Зарегистрироваться</button>
+      </form>
     </div>
   </section>
 </main>

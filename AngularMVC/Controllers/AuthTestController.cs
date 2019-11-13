@@ -47,7 +47,7 @@ namespace AngularMVC.Controllers
     public class AuthTestController : ControllerBase
     {
         [HttpPost]
-        public async Task<string> Post()
+        public async Task<string> Login()
         {
             using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
             {  
@@ -56,6 +56,21 @@ namespace AngularMVC.Controllers
                 var authToken = "someAuthToken";
                 var refreshToken = "someRefreshToken";
                 var user = new User {Email = bodyJson.Email , PhoneNumber = "88005553535",DeliveryAddresses = new string[]{},BirthDate = DateTime.Now,Orders = new UsersOrder[]{new UsersOrder()}};
+                var res = new LoginResponse(){AuthToken = authToken,RefreshToken = refreshToken,User = user};
+                return JsonConvert.SerializeObject(res);
+            }
+        }
+        [Route("registration")]
+        [HttpPost]
+        public async Task<string> Registration()
+        {
+            using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
+            {  
+                var body = await reader.ReadToEndAsync();
+                var bodyJson = JsonConvert.DeserializeObject<LoginRequest>(body);
+                var authToken = "someAuthToken";
+                var refreshToken = "someRefreshToken";
+                var user = new User {Email = bodyJson.Email};
                 var res = new LoginResponse(){AuthToken = authToken,RefreshToken = refreshToken,User = user};
                 return JsonConvert.SerializeObject(res);
             }

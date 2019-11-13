@@ -31,6 +31,17 @@ export class AuthenticationService {
     });
 
   }
+  public registration(email:string, password:string) {
+    this.http.post<string>(`/authtest/registration`,{email,password}).subscribe(res => {
+      let respData = JSON.parse(JSON.stringify(res));
+      localStorage.setItem('currentUser', JSON.stringify(respData.User));
+      this.refreshAuthToken(respData.AuthToken);
+      localStorage.setItem('RefreshToken', respData.RefreshToken);
+      this.router.navigate(['/account']);
+    }, error => {window.alert('retry attempt');
+    });
+  }
+
 
   public logout() {
     // remove user from local storage to log user out
