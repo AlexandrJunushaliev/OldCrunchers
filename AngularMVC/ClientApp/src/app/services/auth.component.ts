@@ -13,8 +13,8 @@ export class AuthenticationService {
 
   }
 
-  public static currentUserValue(): UserData {
-    return <UserData>JSON.parse(localStorage.getItem('currentUser'));
+  public currentUserValue() {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   //FIX! тут правильную ссылку и правильную обработку

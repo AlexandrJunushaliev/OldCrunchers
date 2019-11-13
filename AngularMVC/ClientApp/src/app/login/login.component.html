@@ -1,12 +1,13 @@
 <style>
-    input:invalid {
+  input:invalid {
     border-color: rgba(255, 3, 0, 0.27); /* Красный цвет фона */
   }
-  .clean-block{
-    background-color: rgba(0,0,0,0);
+
+  .clean-block {
+    background-color: rgba(0, 0, 0, 0);
   }
-  .text-info{
-  .text-info{
+
+  .text-info {
     color: orange !important;
   }
 
@@ -16,16 +17,17 @@
     max-width: 500px;
     margin: auto;
     padding: 40px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.075);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .075);
   }
 
-  .btn-primary{
+  .btn-primary {
     border-color: orange !important;
     background-color: white !important;
     color: orange !important;
 
   }
-  .btn-primary:not(:disabled):not(.disabled):active:focus{
+
+  .btn-primary:not(:disabled):not(.disabled):active:focus {
     box-shadow: 0 0 0 .2rem orange !important;
   }
 </style>
@@ -42,10 +44,11 @@
           <label
             for="email">Электронный адрес
           </label>
-          <input type="email" class="form-control item" id="email" required />
+          <input type="email" class="form-control item" id="email" required/>
 
         </div>
-        <div class="form-group"><label for="password">Пароль</label><input type="password" class="form-control" id="password" required minlength="8" /></div>
+        <div class="form-group"><label for="password">Пароль</label><input type="password" class="form-control"
+                                                                           id="password" required minlength="8"/></div>
         <button class="btn btn-primary btn-block" type="submit" (click)="login()">Войти</button>
       </form>
     </div>

@@ -45,21 +45,25 @@
           <div *ngIf="isLoggedIn(); else loggedOut">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                 aria-expanded="false">Заготовка под ФИ</a>
+                 aria-expanded="false">{{auth.currentUserValue().Email}}</a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/account">Личный кабинет</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><button (click)="logout()">something else</button></a>
+                <a class="dropdown-item" href="#" (click)="logout()">Выйти из аккаунта</a>
               </div>
             </li>
           </div>
 
 
           <ng-template #loggedOut>
-            <li>
-              <a class="nav-link text-dark" [routerLink]="['/login']"
-            >Вход/Регистрация</a
-            >
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                 aria-expanded="false">Вход/Регистрация</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" [routerLink]="['/login']">Вход</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" [routerLink]="['/registration']">Регистрация</a>
+              </div>
             </li>
           </ng-template>
         </ul>

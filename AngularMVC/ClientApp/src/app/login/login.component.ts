@@ -26,7 +26,7 @@ export class LoginComponent {
             let label = $('label[for=' + node.id + ']');
 
             //Opera incorrectly does not fill the validationMessage property.
-            let message = node.validationMessage || 'Invalid value.';
+            let message = (<HTMLInputElement>node).validationMessage || 'Invalid value.';
             errorList
               .show()
               .append('<li><span>' + label.html() + '</span>: ' + message + '</li>');
