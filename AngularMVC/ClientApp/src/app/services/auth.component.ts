@@ -20,8 +20,8 @@ export class AuthenticationService {
   //FIX! тут правильную ссылку и правильную обработку
   //здесь я еще храню пользователя
   //кладу токен в ответе
-  public login(username: string, password: string) {
-    this.http.get<string>(`/authtest`).subscribe(res => {
+  public login(email: string, password: string) {
+    this.http.post<string>(`/authtest`,{email,password}).subscribe(res => {
       let respData = JSON.parse(JSON.stringify(res));
       localStorage.setItem('currentUser', JSON.stringify(respData.User));
       this.refreshAuthToken(respData.AuthToken);
